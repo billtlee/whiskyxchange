@@ -6,19 +6,13 @@
   "scripts": {
     "test": "export NODE_ENV=test || SET\"NODE_ENV=test\" && mocha",
     "dev": "export NODE_ENV=dev || SET \"NODE_ENV=dev\" && node server.js",
-    "deployGanage": "export NODE_ENV=ganage || SET\"NODE_ENV=ganage\" && node ethereum/deploy.js",
+    "deployGanache": "export NODE_ENV=ganache || SET\"NODE_ENV=ganache\" && node ethereum/deploy.js",
     "deployRinkby": "export NODE_ENV=rinkby || SET\"NODE_ENV=rinkby\" && node ethereum/deploy.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/cli": "7.0.0-beta.44",
-    "@babel/core": "7.0.0-beta.44",
-    "@babel/plugin-proposal-class-properties": "7.0.0-beta.44",
-    "@babel/preset-env": "7.0.0-beta.44",
-    "@babel/preset-react": "7.0.0-beta.44",
     "archetype-js": "^0.6.1",
-    "babel-loader": "^8.0.0-beta.0",
     "bigchaindb-driver": "^4.0.0",
     "body-parser": "^1.18.3",
     "bson-objectid": "^1.2.3",
@@ -26,7 +20,6 @@
     "crypto-price": "^0.0.6",
     "faker": "^4.1.0",
     "fs-extra": "6.0.1",
-    "ganache-cli": "^6.1.0",
     "lodash": "^4.17.10",
     "mocha": "^5.1.1",
     "mongodb": "^3.1.0-beta4",
@@ -43,7 +36,12 @@
     "web3": "1.0.0-beta.33"
   },
   "devDependencies": {
+    "babel-loader": "^8.0.0-beta.0",
+    "@babel/cli": "7.0.0-beta.44",
     "@babel/core": "7.0.0-beta.44",
+    "@babel/plugin-proposal-class-properties": "7.0.0-beta.44",
+    "@babel/preset-env": "7.0.0-beta.44",
+    "@babel/preset-react": "7.0.0-beta.44",
     "@babel/plugin-transform-runtime": "7.0.0-beta.44",
     "expect": "^22.4.3"
   }
