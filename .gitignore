@@ -3,3 +3,4 @@ yarn.lock
 config/config.json
 config/contractAddress.json
 ethereum/build
+.next/
