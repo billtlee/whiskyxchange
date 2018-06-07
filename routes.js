@@ -1,5 +1,3 @@
-//import whiskyXChange from './ethereum/whiskyXChange';
-
 const routes = require('next-routes')();
 
 routes

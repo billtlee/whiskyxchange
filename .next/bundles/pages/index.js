@@ -45294,7 +45294,6 @@ exports.default = _default2;
   enterModule && enterModule(module);
 })();
 
-//import whiskyXChange from './ethereum/whiskyXChange';
 var routes = __webpack_require__("./node_modules/next-routes/dist/index.js")();
 
 routes.add('/register', '/register').add('/asset/newasset', '/asset/newasset').add('/asset/:id/viewdetail', '/asset/viewdetail');

@@ -45,7 +45,7 @@ class NewAsset extends Component {
     const accounts = await web3.eth.getAccounts();
 
     const whiskyAsset = {
-      _id: assetId,
+      _id: assetId.str,
       owner: accounts[0],
       name,
       size,
@@ -63,29 +63,24 @@ class NewAsset extends Component {
       value
     }
 
-    superagent.post(`http://${window.location.host}/api`, whiskyAsset).then(async res => {
       this.setState({loading: true, errorMessage: ''});
 
-      const id = res.body.whisky._id;
       try {  
         await whiskyXChange.methods.registerAsset(
-          web3.utils.fromAscii(id), 
+          web3.utils.fromAscii(whiskyAsset._id), 
           web3.utils.toWei(cryptoValue.toString(), 'ether')
         ).send({
           from: accounts[0]
         });
       } catch (err) {  
         this.setState({ errorMessage: err.message });
-        superagent.del(`http://${window.location.host}/api/${id}`).then(async res => {
-        }).catch (err => console.error(err.stack));
       }
-      contractAddress = await whiskyXChange.methods.getAssetAddress(web3.utils.fromAscii(id)).call();
-      superagent.patch(`http://${window.location.host}/api/update/${id}`, {contractAddress}).then(async res => {
-
+      whiskyAsset.contractAddress = await whiskyXChange.methods.getAssetAddress(web3.utils.fromAscii(whiskyAsset._id)).call();
+      console.log('whiskyAsset: ', whiskyAsset);
+      superagent.post(`http://${window.location.host}/api`, whiskyAsset).then(async res => {
       }).catch (err => console.error(err.stack));
   
       this.setState({loading: false});
-    }).catch(error => console.error(error.stack));
 
 //    Router.pushRoute('/');
 

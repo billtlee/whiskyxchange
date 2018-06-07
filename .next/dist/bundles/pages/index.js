@@ -468,7 +468,6 @@ exports.default = _default;
 "use strict";
 
 
-//import whiskyXChange from './ethereum/whiskyXChange';
 var routes = __webpack_require__("next-routes")();
 
 routes.add('/register', '/register').add('/asset/newasset', '/asset/newasset').add('/asset/:id/viewdetail', '/asset/viewdetail');
